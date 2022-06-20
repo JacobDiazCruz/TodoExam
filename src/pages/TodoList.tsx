@@ -98,7 +98,7 @@ const TodoPage: React.FC = () => {
               <b>No todo item</b>
             </div>
             <div style={{ fontSize: "14px"}}>
-              Fill up the field and click "Add" button to add a new todo
+              Fill up the field and click "Add" button to add a new todo.
             </div>
           </>
         }
