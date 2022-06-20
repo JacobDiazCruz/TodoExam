@@ -7,6 +7,10 @@ interface TodoItemData {
   text: string,
   done: boolean
 }
+interface ItemClickParam {
+  item: TodoItemData,
+  e: Event
+}
 
 const TodoPage: React.FC = () => {
   const [newTodo, setNewTodo] = useState<string>("")
