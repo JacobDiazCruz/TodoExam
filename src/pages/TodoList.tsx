@@ -80,15 +80,28 @@ const TodoPage: React.FC = () => {
           >
             Add
           </Button>
-          {items.map(item => (
-            <TodoItem 
-              key={item.text}
-              item={item}
-              onItemClick={onItemClick}
-              deleteItem={deleteItem}
-            />
-          ))}
         </Flex>
+        {items.length ?
+          <>
+            {items.map(item => (
+              <TodoItem 
+                key={item.text}
+                item={item}
+                onItemClick={onItemClick}
+                deleteItem={deleteItem}
+              />
+            ))}
+          </>
+        : 
+          <>
+            <div style={{ fontSize: "18px"}}>
+              <b>No todo item</b>
+            </div>
+            <div style={{ fontSize: "14px"}}>
+              Fill up the field and click "Add" button to add a new todo
+            </div>
+          </>
+        }
       </Container>
     </>
   )
