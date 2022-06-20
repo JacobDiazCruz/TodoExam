@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import {Container, Flex, TextField} from "../components/TodoStyles"
 
 interface TodoItemData {
   text: string,
@@ -12,6 +13,14 @@ const TodoPage: React.FC = () => {
   return (
     <>
       <h1>The Todo App</h1>
+      <Container>
+        <Flex>
+          <TextField 
+            type="text"
+            placeholder="Type here"
+          />
+        </Flex>
+      </Container>
     </>
   )
 }
