@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import Button from "../components/Button"
 import {Container, Flex, TextField} from "../components/TodoStyles"
+import TodoItem from "../components/TodoItem"
 
 interface TodoItemData {
   text: string,
@@ -40,6 +41,12 @@ const TodoPage: React.FC = () => {
           >
             Add
           </Button>
+          {items.map(item => (
+            <TodoItem 
+              key={item.text}
+              item={item}
+            />
+          ))}
         </Flex>
       </Container>
     </>
