@@ -26,6 +26,32 @@ const TodoPage: React.FC = () => {
     setNewTodo("")
   }
 
+  /**
+   * @description set done if the item has been clicked
+   * @trigger TodoItem component
+   * @status done
+   */
+  const onItemClick = ({item, e}: ItemClickParam) => {
+    items.map((origItem, key) => {
+      if(item.text == origItem.text) {
+        let newItems: TodoItemData[] = [...items]
+        newItems[key].done = true
+        setItems(newItems)
+      }
+    })
+  }
+
+  /**
+   * @description delete todo item
+   * @trigger "Delete" button
+   * @status done
+   */
+  const deleteItem = (item: TodoItemData, e: Event) => {
+    e.stopPropagation()
+    let newItems: TodoItemData[] = items.filter((data) => data !== item)
+    setItems(newItems)
+  }
+
   return (
     <>
       <h1>The Todo App</h1>
@@ -45,6 +71,8 @@ const TodoPage: React.FC = () => {
             <TodoItem 
               key={item.text}
               item={item}
+              onItemClick={onItemClick}
+              deleteItem={deleteItem}
             />
           ))}
         </Flex>
