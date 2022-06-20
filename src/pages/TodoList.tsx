@@ -56,6 +56,12 @@ const TodoPage: React.FC = () => {
     setItems(newItems)
   }
 
+  const onEnter = (e: any) => {
+    if(e.key === 'Enter') {
+      addNewTodo()
+    }
+  }
+
   return (
     <>
       <h1>The Todo App</h1>
@@ -64,6 +70,9 @@ const TodoPage: React.FC = () => {
           <TextField 
             type="text"
             placeholder="Type here"
+            value={newTodo}
+            onChange={e => setNewTodo(e.target.value)}
+            onKeyPress={e => onEnter(e)}
           />
           <Button
             addNewTodo={addNewTodo}
